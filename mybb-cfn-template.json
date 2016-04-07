@@ -759,6 +759,9 @@
                   "rm -Rf Upload /tmp/mybb.zip\n",
                   "mv /tmp/mybb-config.php inc/config.php\n",
                   "chmod -R 0777 cache uploads inc/settings.php inc/config.php\n",
+                  "wget https://github.com/ukbe/mybb/raw/master/auto-config.php -O /tmp/auto-config.php\n",
+                  "php /tmp/auto-config.php\n",
+                  "sed -i '/adminpass/d' inc/config.php",
                   "echo '1' > install/lock\n"
                 ]]},
                 "mode" : "000500",
@@ -781,10 +784,11 @@
               },
               "/tmp/mybb-config.php": {
                 "content": { "Fn::Join": [ "", [
+                  "<?php\n",
                   "$config['database']['type'] = 'mysqli';\n",
-                  "$config['database']['database'] = '", { "Fn::GetAtt": [ "Database", "Endpoint.Address" ] }, "';\n",
+                  "$config['database']['database'] = '", { "Ref": "ParDBName" }, "';\n",
                   "$config['database']['table_prefix'] = 'mybb_';\n",
-                  "$config['database']['hostname'] = '", { "Fn::GetAtt": [ "LoadBalancer", "DNSName" ] }, "';\n",
+                  "$config['database']['hostname'] = '", { "Fn::GetAtt": [ "Database", "Endpoint.Address" ] }, "';\n",
                   "$config['database']['username'] = '", { "Ref": "ParDBUser" }, "';\n",
                   "$config['database']['password'] = '", { "Ref": "ParDBPassword" }, "';\n",
                   "$config['admin_dir'] = 'admin';\n",
@@ -793,6 +797,8 @@
                   "$config['memcache']['host'] = '", { "Fn::GetAtt": [ "ElasticacheCluster", "ConfigurationEndpoint.Address" ] }, "';\n",
                   "$config['memcache']['port'] = ", { "Fn::GetAtt": [ "ElasticacheCluster", "ConfigurationEndpoint.Port" ] }, ";\n",
                   "$config['super_admins'] = '1';\n",
+                  "$config['adminpass'] = '", { "Ref": "ParAdminPassword" }, "';\n",
+                  "$config['adminemail'] = '", { "Ref": "ParAdminEmail" }, "';\n",
                   "$config['database']['encoding'] = 'utf8';\n",
                   "$config['log_pruning'] = array(\n",
                   "'admin_logs' => 365, // Administrator logs\n",
@@ -801,7 +807,7 @@
                   "'mail_logs' => 180, // Mail error logs\n",
                   "'user_mail_logs' => 180, // User mail logs\n",
                   "'promotion_logs' => 180 // Promotion logs\n",
-                  ");\n"
+                  "); ?>\n"
                 ]]},
                 "mode": "000500",
                 "owner" : "apache",
