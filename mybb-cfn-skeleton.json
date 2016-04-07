@@ -1,5 +1,5 @@
 {
-    "StackName": "mybb-cfn", 
+    "StackName": "mybb-cfn2", 
     "Parameters": [
         {
             "ParameterKey": "ParDBName", 
@@ -53,7 +53,7 @@
         },
         {
             "ParameterKey": "ParAdminEmail", 
-            "ParameterValue": "", 
+            "ParameterValue": "ukbe@hotmail.com", 
             "UsePreviousValue": true
         },
         {

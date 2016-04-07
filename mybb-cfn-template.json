@@ -763,9 +763,10 @@
                   "rm -Rf Upload /tmp/mybb.zip\n",
                   "mv /tmp/mybb-config.php inc/config.php\n",
                   "chmod -R 0777 cache uploads inc/settings.php inc/config.php\n",
-                  "wget https://github.com/ukbe/mybb/raw/master/auto-config.php -O /tmp/auto-config.php\n",
-                  "php /tmp/auto-config.php\n",
-                  "sed -i '/adminpass/d' inc/config.php",
+                  "wget https://github.com/ukbe/mybb/raw/master/auto-config.php -O /var/www/html/auto-config.php\n",
+                  "php /var/www/html/auto-config.php\n",
+                  "sed -i '/adminpass/d' inc/config.php\n",
+                  "rm -Rf /var/www/html/auto-config.php\n",
                   "echo '1' > install/lock\n"
                 ]]},
                 "mode" : "000500",
