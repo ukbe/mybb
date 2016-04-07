@@ -1,0 +1,64 @@
+{
+    "StackName": "mybb-cfn", 
+    "Parameters": [
+        {
+            "ParameterKey": "ParDBName", 
+            "ParameterValue": "mybbdb", 
+            "UsePreviousValue": true
+        },
+        {
+            "ParameterKey": "ParDBUser", 
+            "ParameterValue": "mybbadmin", 
+            "UsePreviousValue": true
+        },
+        {
+            "ParameterKey": "ParDBPassword", 
+            "ParameterValue": "mybbpassword123", 
+            "UsePreviousValue": true
+        },
+        {
+            "ParameterKey": "ParEC2InstanceType", 
+            "ParameterValue": "t2.micro", 
+            "UsePreviousValue": true
+        },
+        {
+            "ParameterKey": "ParEC2InstanceCapacity", 
+            "ParameterValue": "2", 
+            "UsePreviousValue": true
+        },
+        {
+            "ParameterKey": "ParDBInstanceClass", 
+            "ParameterValue": "db.t2.small", 
+            "UsePreviousValue": true
+        },
+        {
+            "ParameterKey": "ParDBAllocatedStorage", 
+            "ParameterValue": "5", 
+            "UsePreviousValue": true
+        },
+        {
+            "ParameterKey": "ParElasticacheNodeType", 
+            "ParameterValue": "cache.t2.micro", 
+            "UsePreviousValue": true
+        },
+        {
+            "ParameterKey": "ParKeyName", 
+            "ParameterValue": "mybb-ssh-key", 
+            "UsePreviousValue": true
+        },
+        {
+            "ParameterKey": "ParCorporateCidrIp", 
+            "ParameterValue": "0.0.0.0/0", 
+            "UsePreviousValue": true
+        },
+        {
+            "ParameterKey": "ParAdminEmail", 
+            "ParameterValue": "", 
+            "UsePreviousValue": true
+        }
+    ], 
+    "DisableRollback": false, 
+    "Capabilities": [
+        "CAPABILITY_IAM"
+    ]
+}
