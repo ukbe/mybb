@@ -55,6 +55,11 @@
             "ParameterKey": "ParAdminEmail", 
             "ParameterValue": "", 
             "UsePreviousValue": true
+        },
+        {
+            "ParameterKey": "ParAdminPassword", 
+            "ParameterValue": "mybbpassword123", 
+            "UsePreviousValue": true
         }
     ], 
     "DisableRollback": false, 
