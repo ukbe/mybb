@@ -1069,7 +1069,7 @@
   "Outputs": {
     "LoadBalancerURL": {
       "Value": { "Fn::Join": [ "", ["http:\/\/", { "Fn::GetAtt": ["LoadBalancer", "DNSName"] } ] ] },
-      "Description": "The ElasticBeanstalk ELB URL of the website"
+      "Description": "The Elastic Load Balancer URL of the website"
     },
     "DatabaseProperties": {
       "Value": { "Fn::Join": [ ",", [ { "Ref": "Database" }, { "Fn::GetAtt": [ "Database", "Endpoint.Address" ] }, { "Fn::GetAtt": [ "Database", "Endpoint.Port" ] } ] ] },
